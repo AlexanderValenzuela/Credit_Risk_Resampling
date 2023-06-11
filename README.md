@@ -5,13 +5,13 @@
 #### Purpose of the Analysis 
 > The purpose of the analyis is to use a dataset of historical lending activity from a peer-to-peer lending services company to build a model that can identify the creditworthiness of borrowers.
 
-#### Explain the Financial Information the Data was on, and what Needed to Predict
+#### Explanation of the Financial Information the Data was on, and what Needed to be Predicted
 > From the `lending_data.csv` file, the `loan_status` column consist of categorical variables, 0 and 1. A value of 0 in the `loan_status` column denotes a prediction that the loan is healthy. A value of 1 in the `loan_status` columnn denotes a prediction that the loan has a high risk of defaulting. 
 
-#### Provide Basic Information About the Variables Trying to Predict
+#### Basic Information About the Variables Trying to be Predicted
 > Performing a `value_counts` function on the labels variable y, there are 75,036 healthy loans and 2,500 loans that have a high risk of defaulting.   
 
-#### Describe the stages of the machine learning process you went through as part of this analysis.<br>
+#### Stages of the machine learning process of this analysis.<br>
 > 1. Prepare the Data<br>
 - Load the `lending_data.csv` file from the Resources folder into a Pandas DataFrame.<br> 
 - Note that you want to predict the `loan_status` variable. 
@@ -33,8 +33,8 @@
 - Calculate the accuracy score, generate a confusion matrix and print the classification report.
 
 
-#### Briefly touch on any methods you used (e.g., `LogisticRegression`, or any resampling method).
-Using the `RandomOverSampler` moduel to resample the data
+#### Briefly Touch on the RandomOverSampler Method
+Using the `RandomOverSampler` module to resample the data
 > - An instance of `RandomOverSampler` is instantiated as `random_oversampler`.
 > - The training data (`X_train` and `y_train`) is resampled via the `fit_resample` function.
 > - The results are named `X_resampled` and `y_resampled`.
@@ -53,7 +53,7 @@ Describe the balanced accuracy scores and the precision and recall scores of all
 
 
 * Machine Learning Model 2:
-  * `LogisticRegression` Classifier and the Resampled Data
+  * `Logistic Regression` Classifier and the Resampled Data
       * Balance Accuracy Score: `(TPs + TNs) ÷ (TPs + TNs + FPs + FNs)` `(18,649 + 615) ÷ (18,663 + 615 + 4 + 116)` `19,264 ÷ 19,398` = `.99` - The accuracy measures how often the model was correct. It does so by calculating the ratio of the number of correct predictions to the total number of outcomes.
       * Precision Score: `TPs ÷ (TPs + FPs)` `18,649 / (18,649 + 4)` `18,649 / 18,653` = `.999` - This means that out of all the times that the model predicted a testing data observation to be the value 0, 99% of those predictions were correct.
       * Recall Score: `TPs / (TPs + FNs)` `18,649 / (18,649 + 116)` `18,649 / 18,765` = `.99` -  By referencing the recall category for the 1 class, we can calculate that the model correctly predicted `563.29` instances `(619 × 0.91)`.
@@ -61,9 +61,4 @@ Describe the balanced accuracy scores and the precision and recall scores of all
 
 
 ## Summary
-
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
-
-If you do not recommend any of the models, please justify your reasoning.
+In evaluation of the two machine learning models, Logistic Regression with the Original Data and Logistic Regression Classified and the Resampled Data, they both performed comparatively well and merely identical according the the balance accuracy scores, precision scores and recall scores.  However on the F1 scores, the Logistic Regression Classified and the Resampled Data score was .99 while the Logistic Regression with the Original Data score was .90.  As a result of the F1 scores, the Logistic Regression Classified and the Resampled Data performed better because we know that the loan that has a high risk of defaulting is highly accurate.  I recommend the Logistic Regression Classified and the Resampled Data.
